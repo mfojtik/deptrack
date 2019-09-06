@@ -1,0 +1,67 @@
+releases:
+  - name: release-4.2
+    components:
+      # shared dependencies
+      - name: github.com/openshift/api
+        branch: master
+      - name: github.com/openshift/client-go
+        branch: master
+        vendor:
+          - github.com/openshift/api@master
+      - name: github.com/openshift/library-go
+        branch: master
+        vendor:
+          - github.com/openshift/api@master
+          - github.com/openshift/client-go@master
+      - name: github.com/openshift/apiserver-library-go
+        branch: master
+        vendor:
+          - github.com/openshift/api@master
+          - github.com/openshift/library-go@master
+          - github.com/openshift/client-go@master
+      # operands
+      - name: github.com/openshift/openshift-apiserver
+        branch: master
+        vendor:
+          - github.com/openshift/api@master
+          - github.com/openshift/client-go@master
+          - github.com/openshift/library-go@master
+          - github.com/openshift/apiserver-library-go@master
+      - name: github.com/openshift/openshift-controller-manager
+        branch: master
+        vendor:
+          - github.com/openshift/api@master
+          - github.com/openshift/client-go@master
+          - github.com/openshift/library-go@master
+          - github.com/openshift/apiserver-library-go@master
+      # operators
+      - name: github.com/openshift/cluster-openshift-apiserver-operator
+        branch: master
+        vendor:
+          - github.com/openshift/api@master
+          - github.com/openshift/client-go@master
+          - github.com/openshift/library-go@master
+      - name: github.com/openshift/cluster-kube-apiserver-operator
+        branch: master
+        vendor:
+          - github.com/openshift/api@master
+          - github.com/openshift/client-go@master
+          - github.com/openshift/library-go@master
+      - name: github.com/openshift/cluster-kube-controller-manager-operator
+        branch: master
+        vendor:
+          - github.com/openshift/api@master
+          - github.com/openshift/client-go@master
+          - github.com/openshift/library-go@master
+      - name: github.com/openshift/cluster-kube-scheduler-operator
+        branch: master
+        vendor:
+          - github.com/openshift/api@master
+          - github.com/openshift/client-go@master
+          - github.com/openshift/library-go@master
+      - name: github.com/openshift/cluster-authentication-operator
+        branch: master
+        vendor:
+          - github.com/openshift/api@master
+          - github.com/openshift/client-go@master
+          - github.com/openshift/library-go@master
