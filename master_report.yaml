@@ -1,0 +1,450 @@
+name: master
+components:
+- name: github.com/openshift/api
+  branch: master
+  vendor: []
+- name: github.com/openshift/client-go
+  branch: master
+  vendor:
+  - github.com/openshift/api@master
+- name: github.com/openshift/library-go
+  branch: master
+  vendor:
+  - github.com/openshift/api@master
+  - github.com/openshift/client-go@master
+- name: github.com/openshift/apiserver-library-go
+  branch: master
+  vendor:
+  - github.com/openshift/api@master
+  - github.com/openshift/library-go@master
+  - github.com/openshift/client-go@master
+- name: github.com/openshift/openshift-apiserver
+  branch: master
+  vendor:
+  - github.com/openshift/api@master
+  - github.com/openshift/client-go@master
+  - github.com/openshift/library-go@master
+  - github.com/openshift/apiserver-library-go@master
+- name: github.com/openshift/openshift-controller-manager
+  branch: master
+  vendor:
+  - github.com/openshift/api@master
+  - github.com/openshift/client-go@master
+  - github.com/openshift/library-go@master
+- name: github.com/openshift/cluster-openshift-apiserver-operator
+  branch: master
+  vendor:
+  - github.com/openshift/api@master
+  - github.com/openshift/client-go@master
+  - github.com/openshift/library-go@master
+- name: github.com/openshift/cluster-kube-apiserver-operator
+  branch: master
+  vendor:
+  - github.com/openshift/api@master
+  - github.com/openshift/client-go@master
+  - github.com/openshift/library-go@master
+- name: github.com/openshift/cluster-kube-controller-manager-operator
+  branch: master
+  vendor:
+  - github.com/openshift/api@master
+  - github.com/openshift/client-go@master
+  - github.com/openshift/library-go@master
+- name: github.com/openshift/cluster-kube-scheduler-operator
+  branch: master
+  vendor:
+  - github.com/openshift/api@master
+  - github.com/openshift/client-go@master
+  - github.com/openshift/library-go@master
+- name: github.com/openshift/cluster-authentication-operator
+  branch: master
+  vendor:
+  - github.com/openshift/api@master
+  - github.com/openshift/client-go@master
+  - github.com/openshift/library-go@master
+status:
+- component:
+    name: github.com/openshift/api
+    branch: master
+    vendor: []
+  status: []
+- component:
+    name: github.com/openshift/client-go
+    branch: master
+    vendor:
+    - github.com/openshift/api@master
+  status:
+  - dependency: github.com/openshift/api@master
+    branch: master
+    current: b5570061
+    desired: a25bb2ad
+    missingcommits:
+    - 2bbece42871d3f7ac8a86375e0062ae824f66d7e
+    - 37c8f8f5ad1190954accc29b1f527dcfb0a3b401
+    - 61ed969569ad595b457f9d66a25a30a1fa0ad70a
+    - 1a1d37ef47d3ce346eba4d9bb906e71b81fbb876
+    - a2d894eb01715c3e79a3e194e21aa1dfc4e3d52d
+    - 8622a28cd328de077ee8d3e29a95b6d2f572e00d
+    - 60bc774d6ad13af39dedd49d69d1dd6b8f330e66
+    - 80df642126fa746e19991693e297505434a6271e
+- component:
+    name: github.com/openshift/library-go
+    branch: master
+    vendor:
+    - github.com/openshift/api@master
+    - github.com/openshift/client-go@master
+  status:
+  - dependency: github.com/openshift/api@master
+    branch: master
+    current: a94e9149
+    desired: a25bb2ad
+    missingcommits:
+    - 2bbece42871d3f7ac8a86375e0062ae824f66d7e
+    - 37c8f8f5ad1190954accc29b1f527dcfb0a3b401
+    - 61ed969569ad595b457f9d66a25a30a1fa0ad70a
+    - 1a1d37ef47d3ce346eba4d9bb906e71b81fbb876
+    - a2d894eb01715c3e79a3e194e21aa1dfc4e3d52d
+    - 8622a28cd328de077ee8d3e29a95b6d2f572e00d
+  - dependency: github.com/openshift/client-go@master
+    branch: master
+    current: 5a550832
+    desired: 5a550832
+    missingcommits: []
+- component:
+    name: github.com/openshift/apiserver-library-go
+    branch: master
+    vendor:
+    - github.com/openshift/api@master
+    - github.com/openshift/library-go@master
+    - github.com/openshift/client-go@master
+  status:
+  - dependency: github.com/openshift/api@master
+    branch: master
+    current: 0922aa5a
+    desired: a25bb2ad
+    missingcommits:
+    - 2bbece42871d3f7ac8a86375e0062ae824f66d7e
+    - 37c8f8f5ad1190954accc29b1f527dcfb0a3b401
+    - 61ed969569ad595b457f9d66a25a30a1fa0ad70a
+    - 1a1d37ef47d3ce346eba4d9bb906e71b81fbb876
+    - a2d894eb01715c3e79a3e194e21aa1dfc4e3d52d
+    - 8622a28cd328de077ee8d3e29a95b6d2f572e00d
+    - eeefa3cc91cdea3e8667e1901e61336e70a9658f
+    - af7bae2945fe7c9b93351433e331c29dc0df2923
+    - 45983f15049c3f1ad5c3f3f8632ad1ddcf94b2e2
+    - 60bc774d6ad13af39dedd49d69d1dd6b8f330e66
+    - 80df642126fa746e19991693e297505434a6271e
+    - 81e91a5de2f17b757c300802aa28319fc7317dac
+    - e3adc2232e8dd211158401876c47b4fb39a9d742
+    - 080ca7368a23ad068dfaa3445747cba8aee3b4f2
+  - dependency: github.com/openshift/library-go@master
+    branch: master
+    current: 9fac0f4c
+    desired: 7d4acc01
+    missingcommits:
+    - 4acd1aae78c6ac6a0a08ff37217c8919a9762861
+    - d889bbfedeaa85b32724c24f30eac5dae0dd51b8
+    - 25ea77e818213a43753d579df72c7598d3210945
+    - 3946f181d4e931848da411ae86d1599c044051ae
+    - 9d12fef41d254c1d3da8a33790615290e139587e
+    - 8c05adf14f2a69e0144985930bf7eab78559d24d
+    - df7cff9544d455380f14f0cfade0cc56e8cb5a90
+    - 4cbc03f794cb19311d8bac37ec0b7b3ae6f1b6ac
+    - 1ffcc98ef7544b7247508b085b29a0767710c902
+    - a2462a071ddc3e9ded15f7844c79140455b1bd4c
+    - 3d9302d2e4b6a416fbb08efb99286c62db8450a5
+    - fc3c5c2dadbf496a21f77abbe35007d568019bde
+    - d5ee5576e4e5f429eda01716f85136baeac38af0
+    - 08a7780528cb2676d0a7630f0b82b7ceea01afa6
+    - 7bbf478d01fdd8d4297c8f27d93b1cedd8055cba
+    - ee67c8495c86e7db5190028c67a8b90f214d2274
+    - 65ff4e191414ca817c9dd45fff2db6272c9fe9e1
+    - 94df4d54bcb4058ba4ae17f55d0b15431590aff2
+    - 7b5789897e9549fd8f6e9524fbffa44b7d9b055e
+    - 39a443a73bb91bc0997eca7291c1bcb8aed1df10
+    - 2798694a21186405572cf9a03528de817eda8322
+    - 997bef9d15b99e1b9f5b92996401006220c53fc0
+    - 5d216395e5dfb57ea13f4d5eab3e20f8b116034c
+  - dependency: github.com/openshift/client-go@master
+    branch: master
+    current: a85ea6a6
+    desired: 5a550832
+    missingcommits:
+    - 09d0749d3fdb5ed29e62cecb720523cd35f3866a
+    - 6bf95c9488f67aea53446fdc15d26c9cd859f06d
+- component:
+    name: github.com/openshift/openshift-apiserver
+    branch: master
+    vendor:
+    - github.com/openshift/api@master
+    - github.com/openshift/client-go@master
+    - github.com/openshift/library-go@master
+    - github.com/openshift/apiserver-library-go@master
+  status:
+  - dependency: github.com/openshift/api@master
+    branch: master
+    current: d2972510
+    desired: a25bb2ad
+    missingcommits:
+    - 2bbece42871d3f7ac8a86375e0062ae824f66d7e
+    - 37c8f8f5ad1190954accc29b1f527dcfb0a3b401
+    - 61ed969569ad595b457f9d66a25a30a1fa0ad70a
+    - 1a1d37ef47d3ce346eba4d9bb906e71b81fbb876
+    - a2d894eb01715c3e79a3e194e21aa1dfc4e3d52d
+    - 8622a28cd328de077ee8d3e29a95b6d2f572e00d
+    - eeefa3cc91cdea3e8667e1901e61336e70a9658f
+    - af7bae2945fe7c9b93351433e331c29dc0df2923
+    - 45983f15049c3f1ad5c3f3f8632ad1ddcf94b2e2
+    - 60bc774d6ad13af39dedd49d69d1dd6b8f330e66
+    - 80df642126fa746e19991693e297505434a6271e
+    - e3adc2232e8dd211158401876c47b4fb39a9d742
+  - dependency: github.com/openshift/client-go@master
+    branch: master
+    current: e9678e3b
+    desired: 5a550832
+    missingcommits:
+    - 09d0749d3fdb5ed29e62cecb720523cd35f3866a
+  - dependency: github.com/openshift/library-go@master
+    branch: master
+    current: 4d03f355
+    desired: 7d4acc01
+    missingcommits:
+    - 4acd1aae78c6ac6a0a08ff37217c8919a9762861
+    - d889bbfedeaa85b32724c24f30eac5dae0dd51b8
+    - 25ea77e818213a43753d579df72c7598d3210945
+    - 3946f181d4e931848da411ae86d1599c044051ae
+    - 9d12fef41d254c1d3da8a33790615290e139587e
+    - 8c05adf14f2a69e0144985930bf7eab78559d24d
+    - df7cff9544d455380f14f0cfade0cc56e8cb5a90
+    - 4cbc03f794cb19311d8bac37ec0b7b3ae6f1b6ac
+    - 1ffcc98ef7544b7247508b085b29a0767710c902
+    - a2462a071ddc3e9ded15f7844c79140455b1bd4c
+    - 3d9302d2e4b6a416fbb08efb99286c62db8450a5
+    - fc3c5c2dadbf496a21f77abbe35007d568019bde
+    - d5ee5576e4e5f429eda01716f85136baeac38af0
+    - 08a7780528cb2676d0a7630f0b82b7ceea01afa6
+  - dependency: github.com/openshift/apiserver-library-go@master
+    branch: master
+    current: 4d81e8c4
+    desired: 4d81e8c4
+    missingcommits: []
+- component:
+    name: github.com/openshift/openshift-controller-manager
+    branch: master
+    vendor:
+    - github.com/openshift/api@master
+    - github.com/openshift/client-go@master
+    - github.com/openshift/library-go@master
+  status:
+  - dependency: github.com/openshift/api@master
+    branch: master
+    current: a25bb2ad
+    desired: a25bb2ad
+    missingcommits: []
+  - dependency: github.com/openshift/client-go@master
+    branch: master
+    current: 5a550832
+    desired: 5a550832
+    missingcommits: []
+  - dependency: github.com/openshift/library-go@master
+    branch: master
+    current: 7d4acc01
+    desired: 7d4acc01
+    missingcommits: []
+- component:
+    name: github.com/openshift/cluster-openshift-apiserver-operator
+    branch: master
+    vendor:
+    - github.com/openshift/api@master
+    - github.com/openshift/client-go@master
+    - github.com/openshift/library-go@master
+  status:
+  - dependency: github.com/openshift/api@master
+    branch: master
+    current: 58aab288
+    desired: a25bb2ad
+    missingcommits:
+    - 2bbece42871d3f7ac8a86375e0062ae824f66d7e
+    - 37c8f8f5ad1190954accc29b1f527dcfb0a3b401
+  - dependency: github.com/openshift/client-go@master
+    branch: master
+    current: 5a550832
+    desired: 5a550832
+    missingcommits: []
+  - dependency: github.com/openshift/library-go@master
+    branch: master
+    current: "75915019"
+    desired: 7d4acc01
+    missingcommits:
+    - 4acd1aae78c6ac6a0a08ff37217c8919a9762861
+    - d889bbfedeaa85b32724c24f30eac5dae0dd51b8
+    - 25ea77e818213a43753d579df72c7598d3210945
+    - 3946f181d4e931848da411ae86d1599c044051ae
+    - 9d12fef41d254c1d3da8a33790615290e139587e
+- component:
+    name: github.com/openshift/cluster-kube-apiserver-operator
+    branch: master
+    vendor:
+    - github.com/openshift/api@master
+    - github.com/openshift/client-go@master
+    - github.com/openshift/library-go@master
+  status:
+  - dependency: github.com/openshift/api@master
+    branch: master
+    current: b5570061
+    desired: a25bb2ad
+    missingcommits:
+    - 2bbece42871d3f7ac8a86375e0062ae824f66d7e
+    - 37c8f8f5ad1190954accc29b1f527dcfb0a3b401
+    - 61ed969569ad595b457f9d66a25a30a1fa0ad70a
+    - 1a1d37ef47d3ce346eba4d9bb906e71b81fbb876
+    - a2d894eb01715c3e79a3e194e21aa1dfc4e3d52d
+    - 8622a28cd328de077ee8d3e29a95b6d2f572e00d
+    - 60bc774d6ad13af39dedd49d69d1dd6b8f330e66
+    - 80df642126fa746e19991693e297505434a6271e
+  - dependency: github.com/openshift/client-go@master
+    branch: master
+    current: e9678e3b
+    desired: 5a550832
+    missingcommits:
+    - 09d0749d3fdb5ed29e62cecb720523cd35f3866a
+  - dependency: github.com/openshift/library-go@master
+    branch: master
+    current: 1eb11315
+    desired: 7d4acc01
+    missingcommits:
+    - 4acd1aae78c6ac6a0a08ff37217c8919a9762861
+    - d889bbfedeaa85b32724c24f30eac5dae0dd51b8
+    - 25ea77e818213a43753d579df72c7598d3210945
+    - 3946f181d4e931848da411ae86d1599c044051ae
+    - 9d12fef41d254c1d3da8a33790615290e139587e
+    - 8c05adf14f2a69e0144985930bf7eab78559d24d
+    - df7cff9544d455380f14f0cfade0cc56e8cb5a90
+    - 4cbc03f794cb19311d8bac37ec0b7b3ae6f1b6ac
+    - 1ffcc98ef7544b7247508b085b29a0767710c902
+    - a2462a071ddc3e9ded15f7844c79140455b1bd4c
+    - 3d9302d2e4b6a416fbb08efb99286c62db8450a5
+- component:
+    name: github.com/openshift/cluster-kube-controller-manager-operator
+    branch: master
+    vendor:
+    - github.com/openshift/api@master
+    - github.com/openshift/client-go@master
+    - github.com/openshift/library-go@master
+  status:
+  - dependency: github.com/openshift/api@master
+    branch: master
+    current: 0922aa5a
+    desired: a25bb2ad
+    missingcommits:
+    - 2bbece42871d3f7ac8a86375e0062ae824f66d7e
+    - 37c8f8f5ad1190954accc29b1f527dcfb0a3b401
+    - 61ed969569ad595b457f9d66a25a30a1fa0ad70a
+    - 1a1d37ef47d3ce346eba4d9bb906e71b81fbb876
+    - a2d894eb01715c3e79a3e194e21aa1dfc4e3d52d
+    - 8622a28cd328de077ee8d3e29a95b6d2f572e00d
+    - eeefa3cc91cdea3e8667e1901e61336e70a9658f
+    - af7bae2945fe7c9b93351433e331c29dc0df2923
+    - 45983f15049c3f1ad5c3f3f8632ad1ddcf94b2e2
+    - 60bc774d6ad13af39dedd49d69d1dd6b8f330e66
+    - 80df642126fa746e19991693e297505434a6271e
+    - 81e91a5de2f17b757c300802aa28319fc7317dac
+    - e3adc2232e8dd211158401876c47b4fb39a9d742
+    - 080ca7368a23ad068dfaa3445747cba8aee3b4f2
+  - dependency: github.com/openshift/client-go@master
+    branch: master
+    current: a85ea6a6
+    desired: 5a550832
+    missingcommits:
+    - 09d0749d3fdb5ed29e62cecb720523cd35f3866a
+    - 6bf95c9488f67aea53446fdc15d26c9cd859f06d
+  - dependency: github.com/openshift/library-go@master
+    branch: master
+    current: cab1b771
+    desired: 7d4acc01
+    missingcommits:
+    - 4acd1aae78c6ac6a0a08ff37217c8919a9762861
+    - d889bbfedeaa85b32724c24f30eac5dae0dd51b8
+    - 25ea77e818213a43753d579df72c7598d3210945
+    - 3946f181d4e931848da411ae86d1599c044051ae
+    - 9d12fef41d254c1d3da8a33790615290e139587e
+    - 8c05adf14f2a69e0144985930bf7eab78559d24d
+    - df7cff9544d455380f14f0cfade0cc56e8cb5a90
+    - 4cbc03f794cb19311d8bac37ec0b7b3ae6f1b6ac
+    - 1ffcc98ef7544b7247508b085b29a0767710c902
+    - a2462a071ddc3e9ded15f7844c79140455b1bd4c
+    - 3d9302d2e4b6a416fbb08efb99286c62db8450a5
+    - fc3c5c2dadbf496a21f77abbe35007d568019bde
+    - d5ee5576e4e5f429eda01716f85136baeac38af0
+    - 08a7780528cb2676d0a7630f0b82b7ceea01afa6
+    - 7bbf478d01fdd8d4297c8f27d93b1cedd8055cba
+- component:
+    name: github.com/openshift/cluster-kube-scheduler-operator
+    branch: master
+    vendor:
+    - github.com/openshift/api@master
+    - github.com/openshift/client-go@master
+    - github.com/openshift/library-go@master
+  status:
+  - dependency: github.com/openshift/api@master
+    branch: master
+    current: b5570061
+    desired: a25bb2ad
+    missingcommits:
+    - 2bbece42871d3f7ac8a86375e0062ae824f66d7e
+    - 37c8f8f5ad1190954accc29b1f527dcfb0a3b401
+    - 61ed969569ad595b457f9d66a25a30a1fa0ad70a
+    - 1a1d37ef47d3ce346eba4d9bb906e71b81fbb876
+    - a2d894eb01715c3e79a3e194e21aa1dfc4e3d52d
+    - 8622a28cd328de077ee8d3e29a95b6d2f572e00d
+    - 60bc774d6ad13af39dedd49d69d1dd6b8f330e66
+    - 80df642126fa746e19991693e297505434a6271e
+  - dependency: github.com/openshift/client-go@master
+    branch: master
+    current: e9678e3b
+    desired: 5a550832
+    missingcommits:
+    - 09d0749d3fdb5ed29e62cecb720523cd35f3866a
+  - dependency: github.com/openshift/library-go@master
+    branch: master
+    current: 1eb11315
+    desired: 7d4acc01
+    missingcommits:
+    - 4acd1aae78c6ac6a0a08ff37217c8919a9762861
+    - d889bbfedeaa85b32724c24f30eac5dae0dd51b8
+    - 25ea77e818213a43753d579df72c7598d3210945
+    - 3946f181d4e931848da411ae86d1599c044051ae
+    - 9d12fef41d254c1d3da8a33790615290e139587e
+    - 8c05adf14f2a69e0144985930bf7eab78559d24d
+    - df7cff9544d455380f14f0cfade0cc56e8cb5a90
+    - 4cbc03f794cb19311d8bac37ec0b7b3ae6f1b6ac
+    - 1ffcc98ef7544b7247508b085b29a0767710c902
+    - a2462a071ddc3e9ded15f7844c79140455b1bd4c
+    - 3d9302d2e4b6a416fbb08efb99286c62db8450a5
+- component:
+    name: github.com/openshift/cluster-authentication-operator
+    branch: master
+    vendor:
+    - github.com/openshift/api@master
+    - github.com/openshift/client-go@master
+    - github.com/openshift/library-go@master
+  status:
+  - dependency: github.com/openshift/api@master
+    branch: master
+    current: 58aab288
+    desired: a25bb2ad
+    missingcommits:
+    - 2bbece42871d3f7ac8a86375e0062ae824f66d7e
+    - 37c8f8f5ad1190954accc29b1f527dcfb0a3b401
+  - dependency: github.com/openshift/client-go@master
+    branch: master
+    current: 5a550832
+    desired: 5a550832
+    missingcommits: []
+  - dependency: github.com/openshift/library-go@master
+    branch: master
+    current: 8ad35d15
+    desired: 7d4acc01
+    missingcommits:
+    - 4acd1aae78c6ac6a0a08ff37217c8919a9762861
+    - d889bbfedeaa85b32724c24f30eac5dae0dd51b8
+    - 25ea77e818213a43753d579df72c7598d3210945

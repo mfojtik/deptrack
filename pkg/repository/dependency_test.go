@@ -1,6 +1,7 @@
 package repository
 
 import (
+	"io/ioutil"
 	"log"
 	"testing"
 
@@ -8,17 +9,23 @@ import (
 )
 
 func TestDependencyStatusFor(t *testing.T) {
-	if _, err := ForComponent(release.Component{
-		Name:   "github.com/openshift/api",
-		Branch: "master",
-	}); err != nil {
+	components := []release.Component{
+		{
+			Name:   "github.com/openshift/api",
+			Branch: "master",
+		},
+		{
+			Name:   "github.com/openshift/client-go",
+			Branch: "master",
+			Vendor: []release.Dependency{"github.com/openshift/api"},
+		},
+	}
+	tmpDir, _ := ioutil.TempDir("", "test")
+	t.Logf("Using %q as root directory", tmpDir)
+	if _, err := ForComponent(tmpDir, components[0], components); err != nil {
 		t.Fatal(err)
 	}
-	repo, err := ForComponent(release.Component{
-		Name:   "github.com/openshift/client-go",
-		Branch: "master",
-		Vendor: []release.Dependency{"github.com/openshift/api"},
-	})
+	repo, err := ForComponent(tmpDir, components[1], components)
 	if err != nil {
 		t.Fatal(err)
 	}

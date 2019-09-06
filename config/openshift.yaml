@@ -1,5 +1,5 @@
 releases:
-  - name: release-4.2
+  - name: master
     components:
       # shared dependencies
       - name: github.com/openshift/api
@@ -33,7 +33,6 @@ releases:
           - github.com/openshift/api@master
           - github.com/openshift/client-go@master
           - github.com/openshift/library-go@master
-          - github.com/openshift/apiserver-library-go@master
       # operators
       - name: github.com/openshift/cluster-openshift-apiserver-operator
         branch: master

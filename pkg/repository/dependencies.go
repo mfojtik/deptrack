@@ -10,29 +10,31 @@ import (
 )
 
 type DependencyStatus struct {
-	Dependency release.Dependency
+	Dependency release.Dependency `json:"dependency"`
 
-	Branch string
+	Branch string `json:"branch"`
 
 	// Level that is currently used in repo
-	Current string
+	Current string `json:"current"`
 
 	// Level that is the HEAD in dependency repo
-	Desired string
+	Desired string `json:"desired"`
 
 	// Number of missing commits
-	MissingCommits []string
+	MissingCommits []string `json:"commits"`
 }
 
+// DependencyStatusFor return a status object describing the state of the given dependency.
 func (r *Repository) DependencyStatusFor(targetDependency release.Dependency) (*DependencyStatus, error) {
 	manager, err := managers.GetRepositoryDependencies(release.ComponentShortName(r.Component), r.Component.Branch)
 	if err != nil {
 		return nil, err
 	}
+
 	var status *DependencyStatus
 
 	for _, d := range manager.Dependencies {
-		if !strings.HasPrefix(d.Name, string(targetDependency)) {
+		if !strings.HasPrefix(string(targetDependency), d.Name+"@") {
 			continue
 		}
 		if len(d.Digest) == 0 {
@@ -45,22 +47,30 @@ func (r *Repository) DependencyStatusFor(targetDependency release.Dependency) (*
 		}
 	}
 	if status == nil {
-		return nil, fmt.Errorf("unable to find %q in repository package manifest", string(targetDependency))
+		return nil, fmt.Errorf("unable to find %q in %q repository package manifest", string(targetDependency), r.Component.Name)
 	}
 
-	dependency := GetRepository(status.Branch, string(status.Dependency))
+	repoName, branchName := splitDependencyName(status.Dependency)
+
+	dependency := GetRepository(branchName, repoName)
 	if dependency == nil {
 		return nil, fmt.Errorf("repository %s@%s is not cached", status.Dependency, status.Branch)
 	}
 
 	head, err := dependency.repo.Head()
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("git head: %v", err)
 	}
 	status.Desired = head.Hash().String()[0:8]
-	status.MissingCommits, err = gitGetMissingCommits(dependency.RootDir, status.Desired, status.Current)
+	status.MissingCommits, err = gitGetMissingCommits(dependency.RepoDir, status.Desired, status.Current)
+	fmt.Printf("  -> Dependency %s is currently %s and desired %s (%d commits behind) ...\n", targetDependency, status.Current, status.Desired, len(status.MissingCommits))
 
 	return status, nil
+}
+
+func splitDependencyName(d release.Dependency) (string, string) {
+	parts := strings.Split(string(d), "@")
+	return parts[0], parts[1]
 }
 
 func gitGetMissingCommits(root string, desired, current string) ([]string, error) {
@@ -70,9 +80,11 @@ func gitGetMissingCommits(root string, desired, current string) ([]string, error
 	if err != nil {
 		return nil, err
 	}
-	commits := []string{}
+	var commits []string
 	for _, c := range strings.Split(string(out), "\n") {
-		commits = append(commits, strings.TrimSpace(c))
+		if len(c) > 0 {
+			commits = append(commits, strings.TrimSpace(c))
+		}
 	}
 	return commits, nil
 }
